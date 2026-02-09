@@ -33,6 +33,7 @@ interface TaskFormData {
   estimatedHours: number | "";
   actualHours: number | "";
   dueDate: string;
+  taskUrl: string;
 }
 
 interface EditTaskDialogProps {
@@ -59,6 +60,7 @@ export default function EditTaskDialog({
     estimatedHours: "",
     actualHours: "",
     dueDate: "",
+    taskUrl: "",
   });
 
   const [tab, setTab] = useState(0);
@@ -82,6 +84,7 @@ export default function EditTaskDialog({
         estimatedHours: task.ESTIMATED_HOURS || "",
         actualHours: task.ACTUAL_HOURS || "",
         dueDate: task.DUE_DATE?.split("T")[0] || "",
+        taskUrl: task.TASK_URL || "",
       });
     }
   }, [task]);
@@ -97,6 +100,7 @@ export default function EditTaskDialog({
         ESTIMATED_HOURS: data.estimatedHours || undefined,
         ACTUAL_HOURS: data.actualHours || undefined,
         DUE_DATE: data.dueDate || undefined,
+        TASK_URL: data.taskUrl || undefined,
       }),
     onSuccess: (response) => {
       if (response.Status) {
@@ -201,6 +205,35 @@ export default function EditTaskDialog({
                       </Select>
                     </FormControl>
                   </Grid>
+
+                  {/* Show URL input when submitting for review */}
+                  {formData.status === "PENDING_REVIEW" && (
+                    <Grid size={{ xs: 12 }}>
+                      <TextField
+                        fullWidth
+                        label="TASK URL (GitHub, Figma, etc.)"
+                        placeholder="https://github.com/org/repo/pull/123"
+                        value={formData.taskUrl}
+                        onChange={(e) =>
+                          handleChange("taskUrl", e.target.value)
+                        }
+                        helperText="Please provide the URL of your task for review"
+                        InputProps={{
+                          startAdornment: (
+                            <Box sx={{ mr: 1, color: "text.secondary" }}>
+                              🔗
+                            </Box>
+                          ),
+                        }}
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            bgcolor: "primary.50",
+                          },
+                        }}
+                      />
+                    </Grid>
+                  )}
+
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <FormControl fullWidth>
                       <InputLabel>Priority</InputLabel>

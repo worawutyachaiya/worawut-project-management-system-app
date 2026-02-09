@@ -101,31 +101,28 @@ export default function MainLayout() {
         }}
       >
         <Box
+          component="img"
+          src="/Fitel.png"
+          alt="FFT Logo"
           sx={{
-            width: 35,
-            height: 35,
-            borderRadius: 2,
-            background: "#2563eb",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.3)",
+            width: 120,
+            height: "auto",
           }}
-        >
-          <TaskIcon sx={{ color: "white", fontSize: 24 }} />
-        </Box>
-        <Typography
+        />
+        {/* <Typography
           variant="h6"
           sx={{
             fontWeight: 700,
-            background: "linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)",
+            background: "linear-gradient(135deg, #991B1B 0%, #DC2626 100%)",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
+            fontSize: "0.95rem",
+            lineHeight: 1.2,
           }}
         >
-          DxTask
-        </Typography>
+          FFT Smart Task
+        </Typography> */}
       </Box>
 
       {/* <Divider /> */}

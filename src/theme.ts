@@ -4,15 +4,15 @@ export const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#2563eb", // Blue
-      light: "#3b82f6",
-      dark: "#1d4ed8",
+      main: "#991B1B", // Deep Red (matching Fitel logo)
+      light: "#B91C1C",
+      dark: "#7F1D1D",
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#06b6d4", // Cyan
-      light: "#22d3ee",
-      dark: "#0891b2",
+      main: "#DC2626", // Bright Red
+      light: "#EF4444",
+      dark: "#B91C1C",
     },
     background: {
       default: "#f8fafc",
@@ -80,11 +80,11 @@ export const theme = createTheme({
           padding: "10px 20px",
           boxShadow: "none",
           "&:hover": {
-            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.25)",
+            boxShadow: "0 4px 12px rgba(153, 27, 27, 0.25)",
           },
         },
         contained: {
-          background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
+          background: "linear-gradient(135deg, #991B1B 0%, #B91C1C 100%)",
         },
       },
     },
@@ -137,12 +137,12 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#3b82f6",
-      light: "#60a5fa",
-      dark: "#2563eb",
+      main: "#DC2626",
+      light: "#EF4444",
+      dark: "#B91C1C",
     },
     secondary: {
-      main: "#22d3ee",
+      main: "#EF4444",
     },
     background: {
       default: "#0f172a",

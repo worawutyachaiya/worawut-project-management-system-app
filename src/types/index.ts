@@ -106,6 +106,7 @@ export interface Task {
   ACTUAL_HOURS?: number;
   DUE_DATE?: string;
   COMPLETED_DATE?: string;
+  TASK_URL?: string;
   assignees?: TaskAssignee[];
   project?: Project;
   approvals?: TaskApproval[];
@@ -150,6 +151,7 @@ export interface Approval {
   approver?: User;
   TASK_TITLE: string;
   TASK_CODE: string;
+  TASK_URL?: string;
   CREATE_DATE: string;
 }
 

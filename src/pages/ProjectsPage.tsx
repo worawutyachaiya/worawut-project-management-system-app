@@ -282,7 +282,7 @@ export default function ProjectsPage() {
                       "& .MuiLinearProgress-bar": {
                         borderRadius: 3,
                         background:
-                          "linear-gradient(90deg, #2563eb 0%, #3b82f6 100%)",
+                          "linear-gradient(90deg, #991B1B 0%, #DC2626 100%)",
                       },
                     }}
                   />

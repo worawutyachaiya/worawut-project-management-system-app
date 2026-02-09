@@ -21,6 +21,7 @@ import {
   Cancel as RejectIcon,
   ChangeCircle as RevisionIcon,
   Visibility as ViewIcon,
+  Link as LinkIcon,
 } from "@mui/icons-material";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { approvalService, taskService } from "@/services/taskService";
@@ -154,6 +155,7 @@ export default function ApprovalsPage() {
               <TableRow>
                 <TableCell>Task Code</TableCell>
                 <TableCell>Task Title</TableCell>
+                <TableCell>Task URL</TableCell>
                 <TableCell>Requester</TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>Status</TableCell>
@@ -163,7 +165,7 @@ export default function ApprovalsPage() {
             <TableBody>
               {approvals.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} sx={{ textAlign: "center", py: 4 }}>
+                  <TableCell colSpan={7} sx={{ textAlign: "center", py: 4 }}>
                     <Typography color="text.secondary">
                       {isLoading ? "Loading..." : "No pending approvals"}
                     </Typography>
@@ -185,6 +187,26 @@ export default function ApprovalsPage() {
                       <Typography fontWeight={500}>
                         {approval.TASK_TITLE || "Unknown Task"}
                       </Typography>
+                    </TableCell>
+                    <TableCell>
+                      {approval.TASK_URL ? (
+                        <Tooltip title="Open Task URL">
+                          <IconButton
+                            component="a"
+                            href={approval.TASK_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            color="primary"
+                            size="small"
+                          >
+                            <LinkIcon />
+                          </IconButton>
+                        </Tooltip>
+                      ) : (
+                        <Typography variant="body2" color="text.secondary">
+                          -
+                        </Typography>
+                      )}
                     </TableCell>
                     <TableCell>
                       <Box
